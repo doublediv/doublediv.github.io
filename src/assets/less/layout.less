@@ -1,0 +1,79 @@
+@import "./theme.less";
+
+// 公共样式
+.clearfix {
+    *zoom: 1;
+
+    &:after {
+        content    : '';
+        display    : block;
+        font-size  : 0;
+        line-height: 0;
+        visibility : hidden;
+        clear      : both;
+    }
+}
+
+// 头部
+.header {
+    background-color    : rgba(0, 0, 0, .5);
+    padding             : 0 10%;
+    display             : flex;
+    justify-content     : space-between;
+    align-items         : center;
+    // @media (min-width: 768px){}
+}
+
+.logo a {
+    display       : block;
+    font-weight   : 700;
+    font-size     : 32px;
+    padding       : 10px 0;
+    color         : #fff;
+    letter-spacing: 2px;
+    font-style    : oblique;
+    text-shadow   : 4px 4px 4px rgba(0, 0, 0, .4);
+}
+
+.nav {
+    width: 50%;
+}
+
+.nav-list {
+    width          : 100%;
+    display        : flex;
+    justify-content: space-between;
+
+    li {
+        a {
+            display       : block;
+            padding       : 10px;
+            color         : #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight   : 700;
+            font-size     : 14px;
+            position      : relative;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                transform: translate(-50%, 0);
+                border-bottom: 1px solid #fff;
+                transition: width .3s;
+
+            }
+
+            &:hover:after,
+            &.cur:after {
+                width: 70%;
+            }
+        }
+    }
+}
+
+// 底部
+.footer {}

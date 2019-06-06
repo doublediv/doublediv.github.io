@@ -1,0 +1,96 @@
+@import "./theme.less";
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+textarea,
+img,
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+  margin : 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: @bgColor;
+  overflow        : hidden;
+  touch-action    : none;
+}
+
+/*这属性现在的一般用处是防止iPhone在坚屏转向横屏时放大文字*/
+html {
+  -ms-text-size-adjust    : 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body,
+::-webkit-input-placeholder {
+  font-family: Arial, "Helvetica Neue", Helvetica, "Microsoft YaHei", sans-serif;
+  color      : @fontColor;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration      : none;
+  color                : @fontColor;
+  outline              : none;
+  -webkit-touch-callout: none;
+}
+
+a:hover {
+  color          : @fontColor;
+  text-decoration: none;
+}
+
+img {
+  border   : none;
+  max-width: 100%;
+}
+
+/*重置苹果系统下按钮自带样式*/
+input,
+button,
+select,
+textarea {
+  outline           : none;
+  border            : none;
+  outline           : none;
+  background        : none;
+  border-radius     : 0;
+  -webkit-appearance: none;
+  font-family       : Arial, "Helvetica Neue", Helvetica, "Microsoft YaHei", sans-serif;
+  margin            : 0;
+  padding           : 0;
+  color             : #373737;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder);
+  color  : #999;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #bfbfbf;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin            : 0;
+}
