@@ -16,7 +16,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
-            '@': resolve('src'),
+            '@src': resolve('src'),
         }
     },
     devServer: {
@@ -45,14 +45,14 @@ module.exports = {
                 collapseWhitespace: true,       //去除空格
                 minifyCSS: true,                //压缩html内css
                 minifyJS: true,                 //压缩html内js
-                removeEmptyElements: true,      //清除内存为空的元素
+                // removeEmptyElements: true,      //清除内存为空的元素
             },
             hash: true
         }),
         new MiniCssExtractPlugin({
             filename: "static/css/layout.[hash:5].css",
             chunkFilename: "static/css/[id].[hash:5].css",
-            publicPath: '../../'
+            publicPath: '../'
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin()
@@ -94,20 +94,22 @@ module.exports = {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    "file-loader"
+                    {
+                        loader: "url-loader",
+                        options: {
+                            limit: 10000,
+                            name: path.posix.join("static", 'images/[name].[hash:7].[ext]')
+                        }
+                    }
                 ]
             },
             {
                 test: /\.(csv|tsv)$/,
-                use: [
-                    'csv-loader'
-                ]
+                loader: 'csv-loader'
             },
             {
                 test: /\.xml$/,
-                use: [
-                    'xml-loader'
-                ]
+                loader: 'xml-loader'
             }
         ]
     }
