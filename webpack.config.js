@@ -69,7 +69,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../'
+                            publicPath: '../../'
                         }
                     },
                     "css-loader",
@@ -83,7 +83,7 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../'
+                            publicPath: '../../'
                         }
                     },
                     'css-loader',
