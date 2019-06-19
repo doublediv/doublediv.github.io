@@ -1,6 +1,53 @@
-.center(){
-    position: absolute;
-    top: 50%;
-    left: 50%;
+// 居中
+.center() {
+    position : absolute;
+    top      : 50%;
+    left     : 50%;
     transform: translate(-50%, -50%);
+}
+
+// 水平居中
+.xcenter() {
+    position : absolute;
+    left     : 50%;
+    transform: translateX(-50%);
+}
+
+// 垂直居中
+.ycenter() {
+    position : absolute;
+    top      : 50%;
+    transform: translateY(-50%);
+}
+
+// 子元素覆盖在父元素上
+.coverParent() {
+    position: absolute;
+    top     : 0;
+    right   : 0;
+    bottom  : 0;
+    left    : 0;
+}
+
+// 图片块状化
+.blockImg () {
+    display: block;
+    width  : 100%;
+}
+
+// 过渡
+.transition(@second: .3s) {
+    transition: all @second linear;
+}
+
+// 按钮
+.btn() {
+    display         : block;
+    width           : 104px;
+    margin          : 0 auto;
+    text-align      : center;
+    line-height     : 38px;
+    color           : #fff;
+    background-color: #f96332;
+    border-radius   : 3px;
 }

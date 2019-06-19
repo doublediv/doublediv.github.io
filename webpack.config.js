@@ -42,7 +42,7 @@ module.exports = {
                 minimize: true,                 //打包为最小值
                 removeAttributeQuotes: true,    //去除引号
                 removeComments: true,           //去除注释
-                collapseWhitespace: true,       //去除空格
+                // collapseWhitespace: true,       //去除空格
                 minifyCSS: true,                //压缩html内css
                 minifyJS: true,                 //压缩html内js
                 // removeEmptyElements: true,      //清除内存为空的元素
