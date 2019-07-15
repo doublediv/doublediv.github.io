@@ -1,3 +1,20 @@
+// 字体大小
+// .fz(@fz) {
+//     font-size: @fz;
+
+//     [data-dpr="2"] & {
+//         font-size: @fz * 2;
+//     }
+
+//     [data-dpr="3"] & {
+//         font-size: @fz * 3;
+//     }
+
+//     [data-dpr="4"] & {
+//         font-size: @fz * 4;
+//     }
+// }
+
 // 居中
 .center() {
     position : absolute;
@@ -40,18 +57,36 @@
     transition: all @second linear;
 }
 
+// 文本单行溢出截断。元素必须是 block 或 inline-block 级。
+.text-overflow(@dispay: 'block', @width: '100%') {
+    display      : @dispay;
+    width        : @width;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+
+// 多行文本溢出隐藏
+.line-clamp(@line: 2, @lineHeight: 24px) {
+    display           : -webkit-box;
+    line-height       : @lineHeight;
+    height            : @line*@lineHeight;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+    overflow          : hidden;
+}
+
 // 按钮
-.btn() {
+.btn(@width: 104px) {
     display         : block;
-    min-width       : 104px;
-    max-width       : 120px;
+    width           : @width;
     padding         : 0 10px;
     margin          : 0 auto;
     text-align      : center;
     font-size       : 15px;
     line-height     : 38px;
     color           : #fff;
-    background-color: #f96332;
+    background-color: @themeColor;
     border-radius   : 3px;
     overflow        : hidden;
 }

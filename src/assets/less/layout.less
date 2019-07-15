@@ -1,6 +1,5 @@
 @import "./theme.less";
 @import "./mixins.less";
-
 // 公共样式
 
 .icon {
@@ -144,7 +143,7 @@
             content: '';
             .coverParent();
             .transition();
-            border       : 2px solid @orangeColor;
+            border       : 2px solid @themeColor;
             border-radius: 5px;
         }
 
@@ -286,7 +285,7 @@
             &:after {
                 content: '';
                 .coverParent();
-                background-color: @orangeColor;
+                background-color: @themeColor;
                 transform       : scale3d(1, 0, 0);
                 .transition();
                 transform-origin: 50% 0;
@@ -369,7 +368,7 @@
                 height          : 100%;
                 border-radius   : 0 2px 2px 0;
                 overflow        : hidden;
-                background-color: @orangeColor;
+                background-color: @themeColor;
             }
         }
     }
@@ -462,11 +461,11 @@
     }
 
     .send-mail {
-        .btn();
+        .btn(110px);
         position        : relative;
         display         : flex;
         align-items     : center;
-        background-color: @orangeColor;
+        background-color: @themeColor;
         transform       : translateZ(0);
 
         &:after {
@@ -491,6 +490,7 @@
 
         .text {
             flex: 1;
+            margin-left: 5px;
         }
 
         .email {

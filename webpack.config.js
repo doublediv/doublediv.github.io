@@ -11,6 +11,25 @@ function resolve(dir) {
 
 const isDev = process.env.NODE_ENV == 'dev';
 
+function pagePack(name, title){
+    return new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, `./dist/${name}.html`),
+        template: `./src/pages/${name}.html`,
+        // favicon: './favicon.ico',
+        title: `dobuleDiv-${title}`,
+        minify: {
+            minimize: true,                 //打包为最小值
+            // removeAttributeQuotes: true,    //去除引号
+            removeComments: true,           //去除注释
+            // collapseWhitespace: true,       //去除空格
+            minifyCSS: true,                //压缩html内css
+            minifyJS: true,                 //压缩html内js
+            // removeEmptyElements: true,      //清除内存为空的元素
+        },
+        hash: true
+    })
+}
+
 let config = {
     entry: {
         app: "./src/main.js",
@@ -18,9 +37,9 @@ let config = {
     devtool: 'inline-source-map',
     resolve: {
         extensions: ['.js', '.json'],
-        alias: {
-            '@src': resolve('src'),
-        }
+        // alias: {
+        //     '@src': resolve('src'), //不起作用
+        // }
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -34,21 +53,7 @@ let config = {
             }
         }),
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            filename: path.resolve(__dirname, './dist/index.html'),
-            template: './src/pages/index.html',
-            favicon: '',
-            minify: {
-                minimize: true,                 //打包为最小值
-                // removeAttributeQuotes: true,    //去除引号
-                removeComments: true,           //去除注释
-                // collapseWhitespace: true,       //去除空格
-                minifyCSS: true,                //压缩html内css
-                minifyJS: true,                 //压缩html内js
-                // removeEmptyElements: true,      //清除内存为空的元素
-            },
-            hash: true
-        }),
+        pagePack('index', '首页'),
         new MiniCssExtractPlugin({
             filename: "static/css/layout.[hash:5].css",
             chunkFilename: "static/css/[id].[hash:5].css",
@@ -73,7 +78,9 @@ let config = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../../'
+                            publicPath: '../../',
+                            hmr: isDev,
+                            reloadAll: true
                         }
                     },
                     "css-loader",
@@ -91,7 +98,9 @@ let config = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../../'
+                            publicPath: '../../',
+                            hmr: isDev,
+                            reloadAll: true
                         }
                     },
                     'css-loader',
@@ -136,15 +145,15 @@ if (isDev) {
         hot: true,
         publicPath: '/'
     }
-    config.plugins.push(
+    config.plugins.concat([
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
-    )
+    ]);
 } else {
     config.output.filename = 'static/js/[name].[chunkhash:5].js';
-    new webpack.optimize.CommonsChunkPlugin({
-        name: 'runtime'
-    })
+    // new webpack.optimize.CommonsChunkPlugin({
+    //     name: 'runtime'
+    // })
     // config.optimization = {
     //     splitChunks: {
     //         cacheGroups: {
