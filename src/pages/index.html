@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
     <!-- 引入阿里图标 -->
     <script src="//at.alicdn.com/t/font_1250943_adz3ictolpa.js"></script>
-    <title><%=htmlWebpackPlugin.options.title %></title></title>
+    <title><%=htmlWebpackPlugin.options.title %></title>
+    </title>
 </head>
 
 <body>
@@ -17,7 +18,7 @@
         <div class="web">
             <h2 class="dictum">年轻人，不要浮躁</h2>
             <h3 class="motto">非淡薄无以明德，非宁静无以致远</h3>
-            <a href="javascript:;" class="more">点我试一下</a>
+            <!-- <a href="javascript:;" class="more">点我试一下</a> -->
         </div>
     </article>
     <article class="index-blog web">
@@ -32,7 +33,6 @@
                         <p class="text">结合sessionStorage防止vuex刷新页面数据丢失的问题</p>
                     </figcaption>
                 </figure>
-                <!-- <a class="visible-look" href="https://www.jianshu.com/p/b59e7ec4c62c">查看文章</a> -->
             </li>
             <li>
                 <figure class="img-box">
@@ -43,7 +43,6 @@
                         <p class="text">引用i18n插件，实现网站多语言切换</p>
                     </figcaption>
                 </figure>
-                <!-- <a class="visible-look" href="https://www.jianshu.com/p/3e2f4fb57d25">查看文章</a> -->
             </li>
             <li>
                 <figure class="img-box">
@@ -54,58 +53,57 @@
                         <p class="text">原生js计算两个日期相差多少年月日</p>
                     </figcaption>
                 </figure>
-                <!-- <a class="visible-look" target="_blank" href="https://www.jianshu.com/p/550782a0aefa">查看文章</a> -->
             </li>
             <li>
                 <figure class="img-box">
                     <img src="../assets/images/ximg09.jpg" alt="">
                     <figcaption>
-                        <h3 class="title">简书</h3></h3>
+                        <h3 class="title">简书</h3>
+                        </h3>
                         <a class="hide-look" target="_blank" href="https://www.jianshu.com/u/c14408ec7060">查看</a>
                         <p class="text">个人在简书上的博文，持续更新中</p>
                     </figcaption>
                 </figure>
-                <!-- <a class="visible-look" href="https://www.jianshu.com/u/c14408ec7060">查看文章</a> -->
             </li>
         </ul>
     </article>
-    <article class="index-about">
+    <article class="index-about" id="about">
         <h2 class="module-title"><span>about</span></h2>
         <div class="web">
             <ul class="base-info">
-                <li>张晓畅/90后</li>
+                <li>张晓畅 / 90后</li>
                 <li>深圳南山</li>
-                <li>前端工程师/5年/在职</li>
-                <li>vue/webpack/jq/bootstrap/小程序/其他</li>
+                <li id="jod">前端工程师 / 5年 / 在职</li>
+                <li class="theme-font">vue / 小程序 / jq / bootstrap / webpack / 其他</li>
                 <li>zhangcanxiao@163.com</li>
             </ul>
             <div class="img-box">
-                    <img src="../assets/images/ximg04.jpg" alt="微信二维码" />
-                </div>
+                <img src="../assets/images/ximg04.jpg" alt="微信二维码" />
+            </div>
             <ul class="skill">
                 <li>
                     <p class="tip">vue</p>
-                    <div class="Percentage"><span style="width: 90%"></span></div>
-                </li>
-                <li>
-                    <p class="tip">webpack</p>
-                    <div class="Percentage"><span style="width: 80%"></span></div>
+                    <div class="percentage"><span class="skill-value" data-width="90%"></span></div>
                 </li>
                 <li>
                     <p class="tip">小程序</p>
-                    <div class="Percentage"><span style="width: 85%"></span></div>
+                    <div class="percentage"><span class="skill-value" data-width="85%"></span></div>
                 </li>
                 <li>
-                    <p class="tip">jq/bootstrap</p>
-                    <div class="Percentage"><span style="width: 90%"></span></div>
+                    <p class="tip">jq / bootstrap</p>
+                    <div class="percentage"><span class="skill-value" data-width="90%"></span></div>
                 </li>
                 <li>
-                    <p class="tip">html5/css3/js</p>
-                    <div class="Percentage"><span style="width: 95%"></span></div>
+                    <p class="tip">html5 / css3 / js</p>
+                    <div class="percentage"><span class="skill-value" data-width="95%"></span></div>
+                </li>
+                <li>
+                    <p class="tip">webpack</p>
+                    <div class="percentage"><span class="skill-value" data-width="80%"></span></div>
                 </li>
                 <li>
                     <p class="tip">其他</p>
-                    <div class="Percentage"><span style="width: 80%"></span></div>
+                    <div class="percentage"><span class="skill-value" data-width="80%"></span></div>
                 </li>
             </ul>
         </div>
@@ -125,7 +123,8 @@
                     </div>
                     <div class="content">
                         <h3 class="title">小程序</h3>
-                        <p class="info">小程序作为一种轻型应用，已经被广大用户接受。基于庞大的用户群体和微信强大的粘性特质造就了微信小程序的活跃生态，越来越多的企业会用微信小程序开发解决痛点、享受成果。</p>
+                        <p class="info">
+                            小程序作为一种轻型应用，已经被广大用户接受。基于庞大的用户群体和微信强大的粘性特质造就了微信小程序的活跃生态，越来越多的企业会用微信小程序开发解决痛点、享受成果。</p>
                     </div>
                 </li>
                 <li>
@@ -178,6 +177,86 @@
 
     </article>
     <!-- @require('../components/footer.html') -->
+    <script>
+        let isSkill = true; //渲染技能
+        /** 设置工作年限 */
+        function setJodAge() {
+            let jodAge = new Date().getFullYear() - 2014;
+            let obj = document.getElementById('jod');
+            let text = obj.innerText;
+            text = text.replace(/\d/, jodAge);
+            obj.innerHTML = text;
+        }
+        /** 设置技能 */
+        function setJodSkill() {
+            let obj = document.getElementById('about');
+            // con
+            window.addEventListener('scroll', function (e) {
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                let aSkil = document.querySelectorAll('.skill-value')
+                if (obj.offsetTop <= scrollTop+100) {
+                    if (isSkill) {
+                        for (let i = 0; i< aSkil.length;i++){
+                            let width = aSkil[i].dataset.width;
+                            setTimeout(() => {
+                                aSkil[i].style="width:" + width;
+                            }, 500*i);
+                        }
+                        isSkill = false;
+                    }
+                } else if (!isSkill) {
+                    for (let i = 0; i < aSkil.length; i++) {
+                        let width = aSkil[i].dataset.width;
+                        aSkil[i].style = "";
+                    }
+                    isSkill = true;
+                }
+
+            }, false)
+        }
+        (function (window) {
+            setJodAge();
+            setJodSkill();
+        })(window)
+    </script>
+    <script>
+        !function (window) {
+
+            /* 设计图文档宽度 */
+            // rem计算方式：设计图尺寸px / 100 = 实际rem  【例: 100px = 1rem，32px = .32rem】
+            var docWidth = 750;
+
+            var doc = window.document,
+                docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+            var recalc = (function refreshRem() {
+                var clientWidth = docEl.getBoundingClientRect().width;
+
+                /* 8.55：小于320px不再缩小，11.2：大于420px不再放大 */
+                docEl.style.fontSize = Math.max(Math.min(20 * (clientWidth / docWidth), 11.2), 8.55) * 5 + 'px';
+
+                return refreshRem;
+            })();
+
+            /* 添加倍屏标识，安卓为1 */
+            docEl.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+
+            if (/iP(hone|od|ad)/.test(window.navigator.userAgent)) {
+                /* 添加IOS标识 */
+                doc.documentElement.classList.add('ios');
+                /* IOS8以上给html添加hairline样式，以便特殊处理 */
+                if (parseInt(window.navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/)[1], 10) >= 8)
+                    doc.documentElement.classList.add('hairline');
+            }
+
+            if (!doc.addEventListener) return;
+            window.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+
+        }(window); 
+    </script>
 </body>
 
 </html>

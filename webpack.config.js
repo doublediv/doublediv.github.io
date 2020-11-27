@@ -146,7 +146,7 @@ if (isDev) {
     config.devServer = {
         contentBase: resolve('./dist'),
         host: '0.0.0.0',
-        port: 3737,
+        port: 3333,
         hot: true,
         publicPath: '/'
     }
