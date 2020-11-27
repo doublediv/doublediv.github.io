@@ -5,15 +5,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+// function resolve(dir) {
+//     return path.join(__dirname, '..', dir)
+// }
 function resolve(dir) {
-    return path.join(__dirname, '..', dir)
+    return path.resolve(__dirname, dir)
 }
 
 const isDev = process.env.NODE_ENV == 'dev';
 
-function pagePack(name, title){
+function pagePack(name, title) {
     return new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, `./dist/${name}.html`),
+        filename: resolve(`./dist/${name}.html`),
         template: `./src/pages/${name}.html`,
         // favicon: './favicon.ico',
         title: `dobuleDiv-${title}`,
@@ -32,17 +35,18 @@ function pagePack(name, title){
 
 let config = {
     entry: {
-        app: "./src/main.js",
+        app: resolve("./src/main.js"),
+        // contact: resolve("./src/entry/contact.js"),
     },
     devtool: 'inline-source-map',
     resolve: {
         extensions: ['.js', '.json'],
-        // alias: {
-        //     '@src': resolve('src'), //不起作用
-        // }
+        alias: {
+            '@src': resolve('./src'), //不起作用
+        }
     },
     output: {
-        path: path.resolve(__dirname, "./dist"),
+        path: resolve("./dist"),
         filename: "static/js/[name].[hash:5].js",
         publicPath: "./"
     },
@@ -54,6 +58,7 @@ let config = {
         }),
         new CleanWebpackPlugin(),
         pagePack('index', '首页'),
+        pagePack('contact', '联系'),
         new MiniCssExtractPlugin({
             filename: "static/css/layout.[hash:5].css",
             chunkFilename: "static/css/[id].[hash:5].css",
@@ -61,7 +66,7 @@ let config = {
         }),
         new CopyPlugin([
             {
-                from: path.resolve(__dirname, "./static"),
+                from: resolve("./static"),
                 to: './static'
             },
         ]),
@@ -139,7 +144,7 @@ let config = {
 if (isDev) {
     config.devtool = "#cheap-module-eval-source-map";
     config.devServer = {
-        contentBase: path.resolve(__dirname, './dist'),
+        contentBase: resolve('./dist'),
         host: '0.0.0.0',
         port: 3737,
         hot: true,

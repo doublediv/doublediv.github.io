@@ -2,6 +2,6 @@
 import "./assets/less/reset.less"
 import "./assets/less/layout.less"
 
-(function(window){
+;(function(window){
     console.log("success")
 })(window)
